@@ -1,4 +1,117 @@
+<style>
+
+/* Swipe 2 required styles */
+
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+}
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.swipe-wrap > div {
+  float:left;
+  width:100%;
+  position: relative;
+}
+
+/* END required styles */
+
+</style>
+
+
+
+<h1>Swipe 2</h1>
+
 <%=@test_user%>
 <%=@result%>
+<script>
+$(document).ready(function(){
+	$("#ex1-pause").click(function(e){
+		if (document.getElementById("ex1-pause").innerHTML == "Pause")
+			{
+				sound.pause();
+				document.getElementById("ex1-pause").innerHTML = "Start"
+				
+			}
+	    else{
+			sound.play();
+			document.getElementById("ex1-pause").innerHTML = "Pause"
+		}
+	    });
+	
+		$("#ex1-fadeout").click(function(e){
+			mySwipe.next()
+			sound.stop();
+			document.getElementById("ex1-pause").innerHTML = "Pause"
+			sound.urls = ['http://condor.eb.com/word/podcast/wd20140714.mp3'];
+			sound.fadeIn(0.5,2000);
+			// sound.next()
+		    });
+});
+</script>
+
+<script>
+var sound = new Howl({
+  urls: ['http://condor.eb.com/word/podcast/wd20140814.mp3']
+}).play();
+</script>
 <p>like</p>
-<p>next</p>
+
+
+<div id='mySwipe' style='max-width:500px;margin:0 auto' class='swipe'>
+  <div class='swipe-wrap'>
+    <div><b>0</b></div>
+    <div><b>1</b></div>
+    <div><b>2</b></div>
+    <div><b>3</b></div>
+    <div><b>4</b></div>
+    <div><b>5</b></div>
+    <div><b>6</b></div>
+    <div><b>7</b></div>
+    <div><b>8</b></div>
+    <div><b>9</b></div>
+    <div><b>10</b></div>
+    <div><b>11</b></div>
+    <div><b>12</b></div>
+    <div><b>13</b></div>
+    <div><b>14</b></div>
+    <div><b>15</b></div>
+    <div><b>16</b></div>
+    <div><b>17</b></div>
+    <div><b>18</b></div>
+    <div><b>19</b></div>
+    <div><b>20</b></div>
+  </div>
+</div>
+
+
+
+<div style='text-align:center;padding-top:20px;'>
+  
+  <button onclick='mySwipe.prev()'>prev</button> 
+  <button id='ex1-fadeout'>next</button>
+  <button id='ex1-pause'>Pause</button>
+
+</div>
+
+<script>
+
+// pure JS
+var elem = document.getElementById('mySwipe');
+window.mySwipe = Swipe(elem, {
+  // startSlide: 4,
+  // auto: 3000,
+  // continuous: true,
+  // disableScroll: true,
+  // stopPropagation: true,
+  // callback: function(index, element) {},
+  // transitionEnd: function(index, element) {}
+});
+
+// with jQuery
+// window.mySwipe = $('#mySwipe').Swipe().data('Swipe');
+
+</script>

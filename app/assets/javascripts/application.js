@@ -12,4 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require howler
+//= require howler.min
+//= require swipe
+//= require Gruntfile
 //= require_tree .
