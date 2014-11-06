@@ -11,10 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140523215223) do
+ActiveRecord::Schema.define(:version => 20141106013709) do
 
   create_table "keywords", :force => true do |t|
     t.string   "keyword"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "podcasts", :force => true do |t|
+    t.string   "title"
+    t.string   "keywords"
+    t.string   "link"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
