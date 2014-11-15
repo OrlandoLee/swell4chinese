@@ -1,2 +1,5 @@
 ==mind map
 http://www.mindmeister.com/474065672
+
+==start solr
+bundle exec rake sunspot:solr:start
