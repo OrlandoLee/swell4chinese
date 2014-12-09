@@ -22,6 +22,11 @@ end
 
 gem 'jquery-rails'
 gem 'devise'
+gem 'sunspot_rails'
+
+group :development do
+  gem 'sunspot_solr'
+end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
